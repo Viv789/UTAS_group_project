@@ -1,0 +1,31 @@
+Working Efficiently as a team:
+    communcating with each other
+    completing tasks that we have committed to in the allocated time
+    bringing forward any issues you are having 
+
+Daily standup will include:
+    tasks that are done
+    tasks you are currently working on
+    any difficulties/obstacles to completing tasks
+
+Retrospectives:
+    Weekly retros scheduled for Friday afternoon (2pm - 3pm)
+    applicable to change as required 
+    retros will include:
+        current update of project
+        what we learned during the week
+        problems we overcame 
+        improvements we will like to include in following weeks
+
+Workload distribution:
+    discuss and breakdown tasks to smallest size
+    pick tasks you would like to do and commit to doing it by a deadline
+
+Methods of communcation:
+    discussion and messages over zoom
+    discord channel
+    slack channel 
+
+GitHub:
+    commit to different branches before main branch
+    use github PR features to review and quality check code
