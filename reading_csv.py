@@ -52,5 +52,6 @@ for d in raw_list_of_product_dicts:
         clean_list_of_product_dicts.append(d)
 
 for r in clean_list_of_product_dicts:
-    if r["Price"] > 1.5 and r["Price"] < 2.5:
-        print(r)
+    for f in clean_list_of_product_dicts:
+        if (r["Product"] == f["Product"]) and r["Price"] != f["Price"]:
+            print(r, f)
