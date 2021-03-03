@@ -19,38 +19,38 @@ for x in range(539):
             v.remove(i)
     list_of_orders.append(v)
 
-# for order in list_of_orders:
-#     for item in order:
-#         if item == "Large" or "large":
-#             product_dict = {
-#                 "Size": "Large",
-#                 "Product": order[order.index(item) + 1],
-#                 "Price": order[order.index(item) + 2],
-#             }
-# #         else:
-# #             product_dict = {
-# #                 "Size": "Regular",
-# #                 "Product": item,
-# #                 "Price": order[order.index(item) + 1],
-# #             }
-# #     print(product_dict)
 
 products = []
 for order in list_of_orders:
-    for x in order:
-        if x == "Large" or "." in x:
+    for item in order:
+        if item == "Large" or "." in item or "Regular" in item:
             pass
         else:
-            if x in products:
+            if item in products:
                 pass
             else:
-                product_dict = {
-                    "Product Name": x,
-                }
-                # item_index = order.index(x)
-                # if order[item_index - 1] == "Large":
-                #     product_dict["Size"] = "Large"
-            products.append(product_dict)
+                products.append(item)
 
-for x in products:
-    print(x)
+raw_list_of_product_dicts = []
+for order in list_of_orders:
+    for x in products:
+        if x in order:
+            price_loc = order.index(x) + 1
+            if "." in order[price_loc]:
+                product_dict = {"Product": x, "Price": float(order[price_loc])}
+                raw_list_of_product_dicts.append(product_dict)
+            else:
+                pass
+
+
+seen = set()
+clean_list_of_product_dicts = []
+for d in raw_list_of_product_dicts:
+    t = tuple(d.items())
+    if t not in seen:
+        seen.add(t)
+        clean_list_of_product_dicts.append(d)
+
+for r in clean_list_of_product_dicts:
+    if r["Price"] > 1.5 and r["Price"] < 2.5:
+        print(r)
