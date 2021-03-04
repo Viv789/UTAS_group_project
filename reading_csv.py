@@ -73,9 +73,25 @@ def insert_products_into_sql():
         conn.commit()
 
 
-insert_products_into_sql()
+list_of_baskets = []
+for order in list_of_orders:
+    order_products = []
+    for item in order:
+        if item == "large" or item == "regular" or item == "" or ("." in item):
+            pass
+        else:
+            order_products.append(item)
+            # print(order_products)
+    list_of_baskets.append(order_products)
 
 
 # for order in list_of_orders:
 #     for item in order:
-#         print(item)
+#         if item == "large" or item == "regular" or item == "" or ("." in item):
+#             pass
+#         else:
+#             transaction
+
+
+print(raw_data["order"].str.lower().head(10))
+
