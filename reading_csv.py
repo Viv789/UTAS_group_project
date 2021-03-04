@@ -12,15 +12,16 @@ raw_data = raw_data.drop("payment_info", 1)
 # raw_data.to_sql("transaction", engine)
 
 list_of_orders = []
-for x in range(539):
-    v = (raw_data["order"].loc[x]).split(",")
+for x in range(len(raw_data.index)):
+    raw_string = (raw_data["order"].loc[x]).lower()
+    v = raw_string.split(",")
     list_of_orders.append(v)
 
 
 products = []
 for order in list_of_orders:
     for item in order:
-        if item == "Large" or "." in item or "Regular" in item:
+        if item == "large" or "." in item or "regular" in item:
             pass
         else:
             if item in products:
@@ -36,10 +37,10 @@ for order in list_of_orders:
             size_loc = order.index(x) - 1
             if "." in order[price_loc]:
                 product_dict = {"Product": x, "Price": float(order[price_loc])}
-                if order[size_loc] == "Large":
-                    product_dict["Size"] = "Large"
-                elif order[size_loc] == "" or "Regular":
-                    product_dict["Size"] = "Regular"
+                if order[size_loc] == "large":
+                    product_dict["Size"] = "large"
+                elif order[size_loc] == "" or "regular":
+                    product_dict["Size"] = "regular"
                 raw_list_of_product_dicts.append(product_dict)
             else:
                 pass
@@ -73,3 +74,8 @@ def insert_products_into_sql():
 
 
 insert_products_into_sql()
+
+
+# for order in list_of_orders:
+#     for item in order:
+#         print(item)
