@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: group_project_container
+    environment:
+      POSTGRES_PASSWORD: "docker"
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_db
+  adminer:
+    image: adminer
+    container_name: adminer_group_container
+    ports:
+      - 8080:8080
+volumes:
+  my_db:

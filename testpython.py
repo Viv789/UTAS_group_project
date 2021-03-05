@@ -1,5 +1,5 @@
-print("Hello, UTAS!")
-print("Foz")
-print("Bye, UTAS")
+conn = psycopg2.connect(
+    host="localhost", database="cafe_data", user="postgres", password="docker"
+)
 
-print("Final test")
+mycursor = conn.cursor()
