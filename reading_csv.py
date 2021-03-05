@@ -9,7 +9,7 @@ raw_data = raw_data.drop("customer_name", 1)
 raw_data = raw_data.drop("payment_info", 1)
 raw_data["uuid"] = [uuid.uuid4() for x in range(len(raw_data.index))]
 
-engine = create_engine("postgresql://postgres:docker@localhost:5432/group_project")
+engine = create_engine("postgresql://postgres:docker@localhost:5432/cafe_data")
 
 list_of_orders = []
 for x in range(len(raw_data.index)):
@@ -56,7 +56,7 @@ for d in raw_list_of_product_dicts:
 
 
 conn = psycopg2.connect(
-    host="localhost", database="group_project", user="postgres", password="docker"
+    host="localhost", database="cafe_data", user="postgres", password="docker"
 )
 
 mycursor = conn.cursor()
