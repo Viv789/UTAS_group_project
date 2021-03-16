@@ -10,11 +10,12 @@ def main_transform(df):
     return transform(df.values.tolist())
 
 
-def pipe(f_name):
-    raw = main_extract(f_name)
-    transformed = main_transform(raw)
-    #print(transformed)
-    load(transformed)
+def pipe(event, context):
+    print(event)
+    # raw = main_extract(f_name)
+    # transformed = main_transform(raw)
+    # #print(transformed)
+    # load(transformed)
 
 
-pipe("./src/2021-02-23-isle-of-wight.csv")
+# pipe("./src/2021-02-23-isle-of-wight.csv")
