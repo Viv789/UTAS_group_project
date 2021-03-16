@@ -1,0 +1,28 @@
+{
+  "name": "utas_group_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iw-de-man-2/utas_group_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iw-de-man-2/utas_group_project/issues"
+  },
+  "homepage": "https://github.com/iw-de-man-2/utas_group_project#readme",
+  "devDependencies": {
+    "serverless": "^2.30.1",
+    "serverless-dotenv-plugin": "^3.8.1",
+    "serverless-python-requirements": "^5.1.0"
+  }
+}
