@@ -1,4 +1,16 @@
 import psycopg2
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+HOST = os.environ.get("DB_HOST")
+USER = os.environ.get("DB_USER")
+PASSWORD = os.environ.get("DB_PASS")
+DB = os.environ.get("DB_NAME")
+PORT = os.environ.get("DB_PORT")
+
 conn = psycopg2.connect(
-    host="de-redshift-redshiftcluster-9f0b8raon4t4.cwuax6l0wxln.eu-west-1.redshift.amazonaws.com", database="dev5", user="awsuser", password="InsecurePassword1234!", port=5439)
+    host=HOST, database=DB, user=USER, password=PASSWORD, port=PORT)
 mycursor = conn.cursor()
