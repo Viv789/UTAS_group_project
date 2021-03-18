@@ -2,25 +2,21 @@ service: utas-etl
 plugins:
   - serverless-python-requirements
   - serverless-dotenv-plugin
-custom:
-  pythonRequirements:
-    pythonBin: python3  
-
 
 provider:
   name: aws
   runtime: python3.8
   region: eu-west-1
   role: arn:aws:iam::534900169478:role/utas_lambda_exec_role
+  vpc:
+    securityGroupIds:
+      - sg-00d713bdedcadb4bc
+    subnetIds:
+      - subnet-093ac2839ae3deb68
 
 functions:
   execute:
     handler: src/etl.pipe
-    vpc:
-      securityGroupIds:
-       - sg-00d713bdedcadb4bc
-      subnetIds:
-       - subnet-093ac2839ae3deb68
     events:
       - s3:
           bucket: utas-etl-bucket
