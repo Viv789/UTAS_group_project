@@ -12,10 +12,12 @@ def main_transform(df):
 
 def pipe(event, context):
     print(event)
-    # raw = main_extract(f_name)
-    # transformed = main_transform(raw)
-    # #print(transformed)
-    # load(transformed)
+    raw = extract(event)
+    print(raw)
+    raw = main_extract(raw)
+    transformed = main_transform(raw)
+    print(transformed)
+    load(transformed)
 
 
 # pipe("./src/2021-02-23-isle-of-wight.csv")

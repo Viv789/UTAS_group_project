@@ -2,6 +2,9 @@ service: utas-etl
 plugins:
   - serverless-python-requirements
   - serverless-dotenv-plugin
+custom:
+  pythonRequirements:
+    pythonBin: python3  
 
 
 provider:
