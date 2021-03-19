@@ -1,8 +1,9 @@
 import pandas as pd
-from src.connection import conn, mycursor
+from src.connection import connection
 from uuid import uuid4
 
-
+conn = connection()
+mycursor = conn.cursor() 
 # load products table
 def load_products(row):
 
