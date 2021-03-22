@@ -1,10 +1,12 @@
 import uuid
 import boto3
+import csv
 import pandas as pd
 
-def extract_from_csv(csv_data):
-    raw_data = pd.read_csv(csv_data, names=["datetime", "location", "customer_name", "basket", "payment_method", "total_price", "card_details"]) #reads csv file and assigns given headers
-    return raw_data
+def extract_from_csv(raw_data):
+    csv_data = csv.reader(raw_data)
+    df = pd.DataFrame(csv_data, columns=["datetime", "location", "customer_name", "basket", "payment_method", "total_price", "card_details"]) #reads csv file and assigns given headers
+    return df
 
 def extract_froms3(event):
     s3_event = event["Records"][0]["s3"]
@@ -19,11 +21,11 @@ def extract_froms3(event):
 def extract(event):
     # raw_data = extract_from_csv('test_data.csv')
     s3_data = extract_froms3(event)
-    raw_data = extract_from_csv(s3_data)
+    df = extract_from_csv(s3_data)
 
 
 
-    df = pd.DataFrame(raw_data) #converts the csv into into a dataframe
+    # df = pd.DataFrame(raw_data) #converts the csv into into a dataframe
     df.dropna(inplace = True) #Removes null values
     df.drop_duplicates() #Removes duplicates
     df.drop(df.columns[2], axis = 1, inplace = True) #Removes customer name 
