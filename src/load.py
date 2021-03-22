@@ -19,14 +19,14 @@ def load_products(row):
         result = mycursor.fetchone()
 
         if result == None:
-            query = "INSERT INTO product (product_id, product_name, size, price) VALUES (%s, %s, %s, %s)"
+            query = "INSERT INTO product (product_id, size, product_name, price) VALUES (%s, %s, %s, %s)"
             prod_ids.append(str(uuid4()))
             vals = list(product.values())
             vals.insert(0, prod_ids[i])
             mycursor.execute(query, tuple(vals))
             conn.commit()
         else:
-            prod_ids.append(result[0])
+            prod_ids.append(result[0][0])
     return prod_ids
 
 
@@ -55,7 +55,7 @@ def load_location(row):
         return loc_id
 
     else:
-        return result[0]
+        return result[0][0]
 
     print("data loaded to location table")
 
