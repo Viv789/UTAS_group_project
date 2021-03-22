@@ -12,5 +12,4 @@ def pipe(event, context):
     print(transformed)
     load(transformed)
 
-
-pipe(None, None)
+# pipe(None, None)

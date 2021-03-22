@@ -36,6 +36,10 @@
 		"ms-python.python"
 	],
 
+	"mounts": [
+		"source=c:/Users/fozia/.aws/credentials,target=/home/vscode/.aws/credentials,type=bind,consistency=cached",
+		"source=c:/Users/fozia/.aws/config,target=/home/vscode/.aws/config,type=bind,consistency=cached"
+	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 

@@ -17,9 +17,9 @@ def extract_froms3(event):
 
 
 def extract(event):
-    raw_data = extract_from_csv('test_data.csv')
-    # s3_data = extract_froms3(event)
-    # raw_data = extract_from_csv(s3_data)
+    # raw_data = extract_from_csv('test_data.csv')
+    s3_data = extract_froms3(event)
+    raw_data = extract_from_csv(s3_data)
 
 
 

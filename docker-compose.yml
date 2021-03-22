@@ -1,17 +1,19 @@
 version: "3.8"
 services:
   db:
-    image: mysql
-    container_name: mysql_container
+    image: postgres
+    container_name: group_project_container
     environment:
-      MYSQL_ROOT_PASSWORD: "${mysql_pass}"
+      POSTGRES_USER: "${POSTGRES_USER"
+      POSTGRES_DB: "${POSTGRES_DB}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
     ports:
-      - "33066:3306"
+      - "5432:5432"
     volumes:
       - my_db
   adminer:
     image: adminer
-    container_name: adminer_container
+    container_name: adminer_group_container
     ports:
       - 8080:8080
 volumes:
