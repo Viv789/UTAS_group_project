@@ -4,9 +4,9 @@ services:
     image: postgres
     container_name: group_project_container
     environment:
-      POSTGRES_USER: "${POSTGRES_USER"
-      POSTGRES_DB: "${POSTGRES_DB}"
-      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_USER: "${LOCAL_DB_USER}"
+      POSTGRES_DB: "${LOCAL_DB_NAME}"
+      POSTGRES_PASSWORD: "${LOCAL_DB_PASS}"
     ports:
       - "5432:5432"
     volumes:
