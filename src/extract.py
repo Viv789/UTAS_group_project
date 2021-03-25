@@ -5,7 +5,7 @@ import pandas as pd
 
 def extract_from_csv(raw_data):
     csv_data = csv.reader(raw_data)
-    df = pd.DataFrame(csv_data, columns=["datetime", "location", "customer_name", "basket", "payment_method", "total_price", "card_details"]) #reads csv file and assigns given headers
+    df = pd.DataFrame(csv_data, columns=["date_time", "location", "customer_name", "basket", "payment_method", "total_price", "card_details"]) #reads csv file and assigns given headers
     return df
 
 def extract_froms3(event):

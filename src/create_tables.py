@@ -28,7 +28,7 @@ def create_tables():
 
     engine.execute(CREATE TABLE IF NOT EXISTS transaction (
                 transaction_id VARCHAR(255) NOT NULL PRIMARY KEY,
-                datetime  VARCHAR(255) NOT NULL,
+                date_time  timestamp NOT NULL,
                 location_id  VARCHAR(255) NOT NULL,
                 payment_method VARCHAR(255) NOT NULL,
                 order_total FLOAT,
