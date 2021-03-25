@@ -7,20 +7,24 @@ provider:
   name: aws
   runtime: python3.8
   region: eu-west-1
-  role: arn:aws:iam::534900169478:role/utas_lambda_exec_role
+  iam:
+    role:
+      permissionBoundary: arn:aws:iam::534900169478:policy/ScopePermissions
   vpc:
     securityGroupIds:
       - sg-00d713bdedcadb4bc
     subnetIds:
       - subnet-093ac2839ae3deb68
 
-functions:
+functions: 
   execute:
     handler: src/etl.pipe
+    role: arn:aws:iam::534900169478:role/utas_lambda_exec_role
     events:
       - s3:
           bucket: utas-etl-bucket
           event: s3:ObjectCreated:*
+          existing: true
           rules: 
             - prefix: incoming/
             - suffix: .csv

@@ -21,3 +21,5 @@ PORT = int(os.environ.get("DB_PORT"))
 def connection():
     return psycopg2.connect(
     host=HOST, database=DB, user=USER, password=PASSWORD, port=PORT)
+
+

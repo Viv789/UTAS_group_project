@@ -1,4 +1,5 @@
 import numpy as np
+import time
 
 
 def transform_location(row: list):
@@ -6,7 +7,8 @@ def transform_location(row: list):
 
 
 def transform_transaction(row: list):
-    return {"timestamp": row[0], "total": row[4], "payment_method": row[3]}
+    epoch = int(time.mktime(time.strptime(row[0], "%Y-%m-%d %H:%M:%S")))
+    return {"date_time": epoch, "total": row[4], "payment_method": row[3]}
 
 
 def transform_basket(row: list):

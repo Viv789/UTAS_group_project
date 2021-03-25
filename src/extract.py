@@ -3,6 +3,10 @@ import boto3
 import csv
 import pandas as pd
 
+def read_from_csv(filename):
+    with open(filename, 'r') as myFile:
+        return myFile.readlines()
+
 def extract_from_csv(raw_data):
     csv_data = csv.reader(raw_data)
     df = pd.DataFrame(csv_data, columns=["date_time", "location", "customer_name", "basket", "payment_method", "total_price", "card_details"]) #reads csv file and assigns given headers
@@ -19,9 +23,9 @@ def extract_froms3(event):
 
 
 def extract(event):
-    # raw_data = extract_from_csv('test_data.csv')
-    s3_data = extract_froms3(event)
-    df = extract_from_csv(s3_data)
+    # raw_data = read_from_csv('./test_data.csv')
+    raw_data = extract_froms3(event)
+    df = extract_from_csv(raw_data)
 
 
 
