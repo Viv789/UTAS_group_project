@@ -1,7 +1,8 @@
 service: utas-etl
 plugins:
   - serverless-python-requirements
-  - serverless-dotenv-plugin
+
+useDotEnv: true
 
 provider:
   name: aws
@@ -16,7 +17,7 @@ provider:
     subnetIds:
       - subnet-093ac2839ae3deb68
 
-functions: 
+functions:
   execute:
     handler: src/etl.pipe
     role: arn:aws:iam::534900169478:role/utas_lambda_exec_role
@@ -25,10 +26,10 @@ functions:
           bucket: utas-etl-bucket
           event: s3:ObjectCreated:*
           existing: true
-          rules: 
+          rules:
             - prefix: incoming/
             - suffix: .csv
-    
+
 package:
   exclude:
     - .venv/**
