@@ -37,10 +37,8 @@ def load_location(row, conn):
     # ToDo: Check if exists first - DONE
     sql_query = "SELECT location_id FROM location WHERE location_name = %s"
     l_values = str(name)
-    try:
-        cursor.execute(sql_query, (l_values,))
-    except Exception:
-        conn.rollback()
+
+    cursor.execute(sql_query, (l_values,))
 
     result = cursor.fetchone()
     if result == None:
@@ -88,4 +86,4 @@ def load(raw):
         loc_id = load_location(row, conn)
         trans_id = load_transaction(row, loc_id, conn)
         load_basket(row, trans_id, conn)
-    
+    conn.close()

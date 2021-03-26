@@ -23,9 +23,8 @@ functions:
     role: arn:aws:iam::534900169478:role/utas_lambda_exec_role
     events:
       - s3:
-          bucket: utas-etl-bucket
+          bucket: utas-etl-bucket-new
           event: s3:ObjectCreated:*
-          existing: true
           rules:
             - prefix: incoming/
             - suffix: .csv

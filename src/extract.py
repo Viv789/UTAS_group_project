@@ -27,9 +27,6 @@ def extract(event):
     raw_data = extract_froms3(event)
     df = extract_from_csv(raw_data)
 
-
-
-    # df = pd.DataFrame(raw_data) #converts the csv into into a dataframe
     df.dropna(inplace = True) #Removes null values
     df.drop_duplicates() #Removes duplicates
     df.drop(df.columns[2], axis = 1, inplace = True) #Removes customer name 
@@ -37,9 +34,4 @@ def extract(event):
     return df
 
 
-# def drop_sensitive_data(df):
-#     df.drop(df.columns[2], axis = 1, inplace = True) #Removes customer name 
-#     df.drop(df.columns[5], axis = 1, inplace = True) #Removes payment details
-#     return df
 
-# df = drop_sensitive_data(extract("./src/2021-02-23-isle-of-wight(1).csv"))
